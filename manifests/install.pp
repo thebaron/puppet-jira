@@ -15,8 +15,6 @@
 # -----------------------------------------------------------------------------
 class jira::install {
 
-  include '::archive'
-
   group { $jira::group:
     ensure => present,
     gid    => $jira::gid,
@@ -91,6 +89,7 @@ class jira::install {
       }
     }
     'archive': {
+      include '::archive'
       archive { "/tmp/${file}":
         ensure          => present,
         extract         => true,
