@@ -41,6 +41,7 @@
     <Listener className="org.apache.catalina.core.ThreadLocalLeakPreventionListener" />
 
     <Service name="Catalina">
+        <!-- Connector for Jira's reverse proxy -->
         <Connector port="<%= @tomcat_port %>"
                    <%- if @tomcat_address -%>
                    address="<%= @tomcat_address %>"
@@ -65,6 +66,18 @@
 <%   end -%>
 <% end -%>
         />
+
+<% if @applink_port -%>
+        <!-- Connector for app link to Confluence -->
+        <Connector port="<%= @tomcat_https_port%>"
+                  connectionTimeout="20000"
+                  maxThreads="200"
+                  minSpareThreads="10" 
+                  enableLookups="false"
+                  acceptCount="10"
+                  URIEncoding="UTF-8"
+        />
+<% end -%>
 
 <% if @tomcat_native_ssl -%>
         <Connector
