@@ -144,8 +144,8 @@ class jira (
   # Context path (usualy used in combination with a reverse proxy)
   $contextpath = '',
 
-  # AppLink port for application links which bypass proxy
-  $applink_port,
+  # AppLink port for application link which bypasses proxy
+  $applink_port = undef,
 
   # Resources for context.xml
   $resources = {},

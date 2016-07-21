@@ -69,11 +69,11 @@
 
 <% if @applink_port -%>
         <!-- Connector for app link to Confluence -->
-        <Connector port="<%= @tomcat_https_port%>"
-                  connectionTimeout="20000"
-                  maxThreads="200"
-                  minSpareThreads="10" 
-                  enableLookups="false"
+        <Connector port="<%= @applink_port %>"
+                  connectionTimeout="<%= @tomcat_connection_timeout %>"
+                  maxThreads="<%= @tomcat_max_threads %>"
+                  minSpareThreads="<%= @tomcat_min_spare_threads %>" 
+                  enableLookups="<%= @tomcat_enable_lookups %>"
                   acceptCount="10"
                   URIEncoding="UTF-8"
         />
